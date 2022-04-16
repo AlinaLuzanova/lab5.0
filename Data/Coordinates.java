@@ -3,6 +3,7 @@ package Data;
 public class Coordinates {
     private Float  x;
     private float y;
+    private static Float max_x = Float.valueOf(754);
     public Coordinates(Float x, float y){
         this.x=x;
         this.y=y;

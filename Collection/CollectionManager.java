@@ -10,6 +10,7 @@ import java.util.TreeSet;
 в этом классе прописаны методы классов интерактивных методов  и методы
 необходимые для их работы
 Одина объект CM содержит одну коллекцию
+создали файл тут
  */
 
 public class CollectionManager {
@@ -27,14 +28,11 @@ public class CollectionManager {
 
     }
 
-        public void show(){
-            Iterator <Organization> iterator = organizations.iterator();
-            while (iterator.hasNext()) {
-                System.out.print(iterator.next().toString());
-            }
-        }
+    public void show() {
+        System.out.println(collection);
+    }
 
-        public void add(Organization o) {
+        public void add() {
             organizations.add(o);
         }
 
@@ -73,5 +71,11 @@ public class CollectionManager {
     }
 
     public CollectionManager(TreeSet<Organization> organization) {
+    }
+
+
+    public void save() {
+        FileM fileM = new FileM();
+        fileM.writeCSV(organizations);
     }
 }

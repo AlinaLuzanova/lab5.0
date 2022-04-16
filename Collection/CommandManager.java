@@ -7,58 +7,28 @@ import Commands.Commands;
 Используем для этого конструктор для класса Commandmanager, куда
 поместим классы, в которых необходимые методы реализуются
  */
-public class CommandManager implements Commands{
-    private static Commands info;
-    private static Commands show;
-    private static Commands add;
-    private static Commands update_id;
-    private static Commands remove_by_id;
-    private static Commands clear;
-    private static Commands save;
-    private static Commands execute_script;
-    private static Commands exit;
-    private static Commands remove_first;
-    private static Commands shuffle;
-    private static Commands history;
-    private static Commands sum_of_annual_turnover;
-    private static Commands count_less_than_postal_address;
-    private static Commands filter_by_employees_count;
 
+// TODO: переделать на хэшмеп
+public class CommandManager {
+    public final HashMap<String, Command> commands = new HashMap<>();
 
-
-    public CommandManager(Commands info,
-                          Commands show,
-                          Commands add,
-                          Commands update_id,
-                          Commands remove_by_id,
-                          Commands clear,
-                          Commands save,
-                          Commands execute_script,
-                          Commands exit,
-                          Commands remove_first,
-                          Commands shuffle,
-                          Commands history,
-                          Commands sum_of_annual_turnover,
-                          Commands count_less_than_postal_address,
-                          Commands filter_by_employees_count)
-    {
-        this.info = info;
-        this.show = show;
-        this.add = add;
-        this.update_id = update_id;
-        this.remove_by_id = remove_by_id;
-        this.clear = clear;
-        this.save = save;
-        this.execute_script = execute_script;
-        this.exit = exit;
-        this.remove_first = remove_first;
-        this.shuffle = shuffle;
-        this.history = history;
-        this.sum_of_annual_turnover = sum_of_annual_turnover;
-        this.count_less_than_postal_address = count_less_than_postal_address;
-        this.filter_by_employees_count = filter_by_employees_count;
-
-    }
+public CommandsList(CollectionManager collectionManager) {
+        commands.put("add", new Add(collectionManager));
+        commands.put("info", new Info(collectionManager));
+        commands.put("show", new Show(collectionManager));
+        commands.put("update_id", new Update(collectionManager));
+        commands.put("remove_by_id", new RemoveById(collectionManager));
+        commands.put("clear", new Clear(collectionManager));
+        commands.put("remove_first", new RemoveFirst(collectionManager));
+       // commands.put("print_ascending", new PrintAscending(collectionManager));
+        commands.put("filter_by_employees_count", new FilterByEmployessCount(collectionManager));
+        commands.put("count_less_than_weapon_type", new CountLessThanWeaponType(collectionManager));
+        commands.put("remove_greater", new RemoveGreater(collectionManager));
+        commands.put("add_if_min", new AddIfMin(collectionManager));
+        commands.put("execute_script", new ExecuteScript(this));
+        commands.put("save", new Save(collectionManager));
+        commands.put("help", new Help(commands));
+        commands.put("exit", new Exit());
 
     /*
     Создаём методы, возвращающие выполнение интерактивных методов

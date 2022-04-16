@@ -1,7 +1,7 @@
 package Commands;
 //интерфейс, содержащий метод execute, который должна выполнять каждыая команда
 public interface Commands {
- void execute();
+void execute(String[] args, boolean filename);
 
 }
 

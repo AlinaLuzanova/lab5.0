@@ -10,7 +10,7 @@ public class Clear implements Commands{
     }
 
     @Override
-    public void execute() {
+    public void execute(String[] args, boolean filename) {
         collectionManager.clear();
     }
 }

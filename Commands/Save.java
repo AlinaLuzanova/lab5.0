@@ -2,10 +2,10 @@ package Commands;
 
 import Collection.CollectionManager;
 
-public class save extends AbstractCommand {
+public class Save extends AbstractCommand {
     private final CollectionManager cm;
 
-    public save(CollectionManager cm) {
+    public Save(CollectionManager cm) {
         this.cm = cm;
     }
 

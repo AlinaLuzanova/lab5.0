@@ -1,7 +1,7 @@
 package Commands;
 //Создаём класс хелп который при вызове выводит функции всех остальных комманд в консоль
 public class Help  implements Commands{
-    public void execute() {
+    public void execute(String[] args, boolean filename) {
         System.out.println ("Help -  вывести справку по доступным командам");
         System.out.println ("Info - вывести в стандартный поток вывода информацию о коллекции" );
         System.out.println ("Show - вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
