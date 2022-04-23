@@ -77,5 +77,6 @@ public class CollectionManager {
     public void save() {
         FileM fileM = new FileM();
         fileM.writeCSV(organizations);
+        //ddddd
     }
 }
